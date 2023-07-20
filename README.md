@@ -1,3 +1,3 @@
 # movies-explorer-api
 
-Сервер расположен по адресу: http://api.diplomvova.nomoredomains.xyz
+Сервер расположен по адресу: https://api.diplomvova.nomoredomains.xyz
