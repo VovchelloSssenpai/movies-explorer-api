@@ -3,7 +3,7 @@ const NotFoundError = require('../utils/NotFoundError');
 const LimitedAccessError = require('../utils/LimitedAccessError');
 
 const getMovies = ((req, res, next) => {
-  Movie.find({}).then((moviesData) => res.send(moviesData))
+  Movie.find({ owner: req.user._id }).then((moviesData) => res.send(moviesData))
     .catch(next);
 });
 

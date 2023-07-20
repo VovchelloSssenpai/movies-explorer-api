@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const AuthorizationError = require('../utils/AuthorizationError');
-const { JWT_SECRET, NODE_ENV, DEV_SECRET } = require('../utils/utils');
+const { HIDDEN_KEY } = require('../utils/utils');
 
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
     let payload;
     const token = authorization.replace('Bearer ', '');
     try {
-      payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : DEV_SECRET);
+      payload = jwt.verify(token, HIDDEN_KEY);
     } catch (err) {
       return next(new AuthorizationError('Ошибка авторизации'));
     }

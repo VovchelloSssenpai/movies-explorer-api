@@ -3,7 +3,7 @@ const jsonWebToken = require('jsonwebtoken');
 const User = require('../models/user');
 const NotFoundError = require('../utils/NotFoundError');
 const AuthorizationError = require('../utils/AuthorizationError');
-const { JWT_SECRET, NODE_ENV, DEV_SECRET } = require('../utils/utils');
+const { HIDDEN_KEY } = require('../utils/utils');
 
 const getUser = (
   (req, res, next) => {
@@ -48,7 +48,7 @@ const login = (
           if (isValidUser) {
             const jwt = jsonWebToken.sign({
               _id: user._id,
-            }, NODE_ENV === 'production' ? JWT_SECRET : DEV_SECRET);
+            }, HIDDEN_KEY);
 
             res.send({ data: user.toJSON(), token: jwt });
           } else {
