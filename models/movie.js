@@ -63,12 +63,10 @@ const movieSchema = new mongoose.Schema({
   nameRU: {
     type: String,
     required: true,
-    match: [/^[А-Яа-яёЁ\s]+$/, 'Название фильма должно быть на русском'],
   },
   nameEN: {
     type: String,
     required: true,
-    match: [/^[A-Za-z\s]+$/, 'Название фильмы должго быть на английском'],
   },
 });
 module.exports = mongoose.model('movie', movieSchema);

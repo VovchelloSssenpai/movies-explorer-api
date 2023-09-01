@@ -21,8 +21,8 @@ const createMovieValidator = Joi.object().keys({
   trailerLink: Joi.string().uri().required().pattern(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-/]))?/),
   thumbnail: Joi.string().uri().required().pattern(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-/]))?/),
   movieId: Joi.number().required(),
-  nameRU: Joi.string().required().pattern(/^[А-Яа-яёЁ\s]+$/),
-  nameEN: Joi.string().required().pattern(/^[A-Za-z\s]+$/),
+  nameRU: Joi.string().required(),
+  nameEN: Joi.string().required(),
 });
 
 const deleteMovieByIdValidator = Joi.object().keys({
