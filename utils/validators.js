@@ -12,10 +12,10 @@ const signinValidator = Joi.object().keys({
 });
 
 const createMovieValidator = Joi.object().keys({
-  country: Joi.string().min(2).max(30).required(),
-  director: Joi.string().min(2).max(30).required(),
+  country: Joi.string().required(),
+  director: Joi.string().required(),
   duration: Joi.number().required(),
-  year: Joi.number().required(),
+  year: Joi.string().required(),
   description: Joi.string().required(),
   image: Joi.string().uri().required().pattern(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-/]))?/),
   trailerLink: Joi.string().uri().required().pattern(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-/]))?/),
